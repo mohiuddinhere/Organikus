@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="myLeftCtn">
-                        <form class="myForm text-center">
+                        <form class="myForm text-center user-align">
                             <header>CREATE NEW ACCOUNT</header>
                             <div class="form-group">
                                 <i class="fas fa-envelope"></i>
@@ -36,12 +36,21 @@
 
                             <div class="form-group">
                                 <label><input id="check_1" name="check_1" type="checkbox" required>
-                                <small>I read and agree to Terms and Conditions</small></input>
+                                <small>I read and agree to <a href="#" class="anchor">Terms and Conditions</a></small></input>
                                 <div class="invalid-feedback">You must check the box!
                                 </div></label>
                             </div>
 
                             <input type="submit" class="butt curs" value="CREATE ACCOUNT">
+
+                        <div class="resp">
+                            <div class="google-btn curs">
+                                <div class="google-icon-wrapper">
+                                  <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                                </div>
+                                <p class="btn-text"><b>Continue with Google</b></p>
+                            </div>
+                        </div>
 
                             <p id="form-foot">Already a user? <a href="#" id="anchor">LOG IN</a></p>
                         </form>

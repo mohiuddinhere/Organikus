@@ -8,8 +8,15 @@
     box-sizing: border-box;
 }
 
-body{
-    background: #597d92;
+html{
+    background: url(back.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body{    
     font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -148,14 +155,15 @@ body{
 }
 
 #form-foot{
-  padding-top: 2rem;
+  padding-top: 1.5rem;
+  margin-bottom: 0px !important;
 }
 
-#anchor{
-  text-decoration: none;
+.anchor{
+  text-decoration: none !important;
 }
 
-#anchor:hover{
+.anchor:hover{
   color: #edb41a;
 }
 
@@ -265,4 +273,26 @@ body{
 }
 .google-btn:active {
   background: #1669f2;
+}
+
+.user-align header{
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.user-align{
+  margin-top: 10px;
+}
+
+/* @media (max-width: 766px) {
+  .resp {
+    margin-left: 12.5rem;
+  }
+} */
+
+.resp{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-right: 45px;
 }
