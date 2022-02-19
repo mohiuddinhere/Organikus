@@ -57,16 +57,16 @@ li,a,button,label{
 .nav-item { 
     display: table-cell; 
     position: relative; 
-    padding: 15px 0;
+    padding: 10px 0;
   }
 .nav-link {
     color: #edb41a;
     text-transform: uppercase;
     text-decoration: none;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
     font-size: small;
     display: inline-block;
-    padding: 15px 20px;
+    padding: 15px 15px;
     position: relative;
   }
 .nav-link:after {    
@@ -219,8 +219,8 @@ li,a,button,label{
 .footer-area{
     background-color: #edb51a2f;
     width: 100%;
-    height: 60vh;
-    border-radius: 50% 50% 10% 10% / 10% 10% 0% 0%;
+    height: 90vh;
+    border-radius: 0% 100% 0% 100% / 100% 0% 100% 0% ;
 }
 .mail-us{
     font-size: 1.5rem;
@@ -274,4 +274,18 @@ li,a,button,label{
 }
 .mail-us button i:hover{
     color: #212529;
+}
+
+.footer-link-margin{
+    display: flex;
+    flex-direction: row;
+    justify-content:start;
+    align-items:flex-start;
+
+}
+#padding-left-23px{
+    padding-left: 23px;
+}
+#margin-left-8px{
+    margin-left: 8px;
 }
