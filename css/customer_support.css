@@ -1,0 +1,24 @@
+.card{
+    background-color: #edb41a;
+    color: #212529;
+}
+
+.card h5,p,a{
+    color: #212529;
+}
+
+.bichi{
+    background-color: #fff;
+}
+
+.bichi:hover{
+    background-color: rgb(229, 238, 235);
+}
+
+.shado{
+    box-shadow: 0 4px 8px 0 rgba(121, 105, 16, 0.829), 0 6px 20px 0 rgba(99, 86, 11, 0.5);
+}
+
+.text-color{
+    color: #212529;
+}
