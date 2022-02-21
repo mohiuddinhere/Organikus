@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Rajdhani:wght@300;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+li,a,button,label{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: large;
+    list-style: none;
+    text-decoration: none;
+    color: #edb41a;
+}
+input,p{
+    font-family: 'Rajdhani', sans-serif;
+}
+.map-box{
+    width: 100%;
+    height: 70vh;
+}
+.col-sm-5{
+    margin-bottom: auto;
+}
+.hardiness-zone-lookup{
+    font-size: 1.5rem;
+    line-height: 2rem;
+    border: 0;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+}
+.hardiness-zone-lookup input{
+    width: 90%;
+    display: block;
+    font-size: 17px;
+    line-height: 22px;
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 0;
+    -webkit-box-flex: 1;
+    flex: 1;
+    background: rgba(255, 255, 255, 0);
+    border: none;
+    border-bottom:1px solid white;
+    color: #edb41a;
+    padding: 0.9rem 1.25rem;
+    width: 100%;
+    z-index: 1;
+    font-weight: 300;
+    font-size: 17px;
+    padding-left: 0;
+}
+.hardiness-zone-lookup input::placeholder{
+    color: #edb41a;
+}
+.hardiness-zone-lookup button{
+    background-color: rgba(255, 255, 255, 0);;
+    outline: none;
+    border: none;
+    background: rgba(255, 255, 255, 0);
+    border: none;
+    border-bottom:1px solid white;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 0 1rem;
+    cursor: pointer;
+    z-index: 1;
+}
+.hardiness-zone-lookup button i:hover{
+    color: #212529;
+}
+.hardiness-zone-text{
+    text-align: justify;
+}
