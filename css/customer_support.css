@@ -22,3 +22,42 @@
 .text-color{
     color: #212529;
 }
+
+.margin-left{
+    margin-left: 80px;
+    color: #212529;
+}
+
+.margin-left:hover{
+    background-color: #212529;
+}
+
+.d-flex{
+    justify-content: flex-end;
+}
+
+/* iphone 12 pro */
+/* @media (max-width: 393px){
+    .mediaq{
+        margin-left: 107px;
+    }
+
+    .bottom{
+        margin-bottom: auto !important;
+    }
+
+    .marg-bottom{
+        margin-bottom: 40px;
+        margin-top: 0%;
+    }
+
+    .cardd{
+        margin-left: 14px;
+        margin-bottom: 10px;
+    }
+
+    .marg-tp{
+        margin-top: 0% !important;
+    }
+
+} */
