@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Rajdhani:wght@300;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
 *{
     box-sizing: border-box;
@@ -11,13 +11,10 @@ body{
     font-family: 'Josefin Sans', sans-serif;
     background-color: #212529!important;
 }
-li,a,button,label{
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: large;
-    list-style: none;
-    text-decoration: none;
-    color: #edb41a;
+input{
+    font-family: 'Rajdhani', sans-serif;
 }
+
 .button-8 a:link {
     color: #edb41a;
 }
@@ -57,16 +54,16 @@ li,a,button,label{
 .nav-item { 
     display: table-cell; 
     position: relative; 
-    padding: 15px 0;
+    padding: 10px 0;
   }
 .nav-link {
     color: #edb41a;
     text-transform: uppercase;
     text-decoration: none;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
     font-size: small;
     display: inline-block;
-    padding: 15px 20px;
+    padding: 15px 15px;
     position: relative;
   }
 .nav-link:after {    
@@ -112,7 +109,6 @@ li,a,button,label{
     display: block;
     font-size: 17px;
     line-height: 22px;
-    font-weight: 300;
     margin-top: 0;
     margin-bottom: 0;
     -webkit-box-flex: 1;
@@ -121,15 +117,15 @@ li,a,button,label{
     border-bottom-left-radius: 6px;
     background: rgba(255, 255, 255, 0.164);
     border: none;
-    color: #ffffff;
+    color: #102774;
     padding: 0.9rem 1.25rem;
     width: 0;
     z-index: 1;
-    font-weight: 300;
+    font-weight: 600;
     font-size: 17px;
 }
 .search_box input::placeholder{
-    color: #edb41a;
+    color: #102774;
 }
 .search_box button{
     background-color: rgba(255, 255, 255, 0.164);;
@@ -217,10 +213,10 @@ li,a,button,label{
     border-right: 0px!important;
 }
 .footer-area{
-    background-color: #edb51a2f;
+    background-color: #33333334;
     width: 100%;
-    height: 60vh;
-    border-radius: 50% 50% 10% 10% / 10% 10% 0% 0%;
+    height: 100vh;
+    border-radius: 0% 100% 0% 100% / 100% 0% 100% 0% ;
 }
 .mail-us{
     font-size: 1.5rem;
@@ -276,6 +272,43 @@ li,a,button,label{
     color: #212529;
 }
 
+<<<<<<< HEAD
 .justification{
     text-align: justify;
 }
+=======
+.footer-link-margin{
+    display: flex;
+    flex-direction: row;
+    justify-content:start;
+    align-items:flex-start;
+
+}
+#padding-left-23px{
+    padding-left: 23px;
+}
+#margin-left-8px{
+    margin-left: 8px;
+}
+
+.type {
+    color:#0000;
+    background:
+    linear-gradient(-90deg,#edb41a,#0000 0) 10px 0,
+    linear-gradient(#edb41a 0 0) 0 0;
+    background-size:calc(var(--n)*1ch) 200%;
+    -webkit-background-clip:padding-box,text;
+    background-clip:padding-box,text;
+    background-repeat:no-repeat;
+    animation: 
+     b .7s infinite steps(1),   
+     t calc(var(--n)*.1s) steps(var(--n)) forwards;
+  }
+  
+  @keyframes t{
+    from {background-size:0 200%}
+  }
+  @keyframes b{
+    50% {background-position:0 -100%,0 0}
+  }
+>>>>>>> 54b8158f6d1db2fdff13cd5a0f07af9a9f11dba9
