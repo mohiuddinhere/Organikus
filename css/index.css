@@ -272,11 +272,9 @@ input{
     color: #212529;
 }
 
-<<<<<<< HEAD
 .justification{
     text-align: justify;
 }
-=======
 .footer-link-margin{
     display: flex;
     flex-direction: row;
@@ -311,4 +309,3 @@ input{
   @keyframes b{
     50% {background-position:0 -100%,0 0}
   }
->>>>>>> 54b8158f6d1db2fdff13cd5a0f07af9a9f11dba9
