@@ -275,3 +275,7 @@ li,a,button,label{
 .mail-us button i:hover{
     color: #212529;
 }
+
+.justification{
+    text-align: justify;
+}

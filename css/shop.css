@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Redressed&family=Roboto&family=Source+Sans+Pro:wght@300;400;600&display=swap');
+
+.cart-button{
+    background-color: transparent;
+    border: none;
+}
+
+.cart-button figcaption{
+    font-size: 1.6rem;
+}
+
+.font-change{
+    font-family: 'Redressed', sans-serif;
+}
+
+.icon-col{
+    color: #212529;
+}
+
+.pos-change{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
