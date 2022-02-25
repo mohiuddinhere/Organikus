@@ -1,0 +1,14 @@
+.justify{
+    text-align: justify;
+}
+
+.form-col{
+    background-color: transparent !important;
+    color: #edb41a !important;
+}
+
+.size-change{
+    width: 100%;
+    height: 40vh;
+}
+
