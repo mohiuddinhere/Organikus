@@ -138,13 +138,13 @@
 
 
 
-    <footer class="footer-area">
-        <div class="container">
-          <div class="row justify-content-center align-items-center">
+<footer class="footer-area">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
             <div class="col-sm-8 mt-5 ">
-              <p style="color:rgb(67, 100, 199)" >NO CREDIT CARD REQUIRED<p>
-              <h2>Book a demo</h2>
-              <div  class="mail-us mt-5">
+                <p style="color:rgb(67, 100, 199)" >NO CREDIT CARD REQUIRED<p>
+            <h2>Book a demo</h2>
+            <div  class="mail-us mt-5">
                 <input type="email" placeholder="Working Email">
                 <button><i class="fa-solid fa-paper-plane"></i></button>
               </div>  
@@ -189,8 +189,15 @@
           </div>
         </div>
       </footer>
-        
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/script.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+
+<script type="text/javascript">
+  var nav = document.querySelector('nav');
+
+  window.addEventListener('scroll', function () {
+      nav.classList.add('bg-dark', 'shadow');
+  });
+</script>
 </body>
+
 </html>

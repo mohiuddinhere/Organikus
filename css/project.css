@@ -46,3 +46,30 @@
 .add-project-card i{
     font-size:xx-large;
 }
+.remove-btn{
+    margin-top:.5rem;
+    margin-left: .7rem;
+    width: 10%;
+}
+.result-card:nth-child(n){
+    border-right: 1px solid #edb41a;
+}
+.result-card:last-child{
+    border-right: none;
+}
+.result-card i{
+    font-size: x-large;
+}
+.result-card h4{
+    display: inline-block;
+}
+
+.percentage-color {
+    position:relative;
+    top: 0px;
+    left: 0px;
+    width: 10%;
+    height: 100%;
+    background-color: rgb(64 98 199);
+    z-index: 1;
+}

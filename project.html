@@ -160,12 +160,17 @@
                     </div>
                 </div>
             </div>
-        </footer>
-      
-          <script src="js/bootstrap.bundle.min.js"></script>
-          <script src="js/script.js"></script>
-        </body>
-      </html>
-      
+        </footer>  
 </body>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+
+<script type="text/javascript">
+  var nav = document.querySelector('nav');
+
+  window.addEventListener('scroll', function () {
+      nav.classList.add('bg-dark', 'shadow');
+  });
+</script>
+
 </html>
