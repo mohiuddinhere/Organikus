@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Redressed&family=Roboto&family=Source+Sans+Pro:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Redressed&family=Roboto&family=Source+Sans+Pro:wght@300;400;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* html{
+    background: url(img/back.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+} */
+
+body{    
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+
+  .row{
+    height: 100%;
+    } 
+
+    .box {
+        position: relative;
+        margin: 20px;
+        margin-bottom: 20px;
+      } 
+
+     
+#head{
+  font-size: 2rem;
+}
+
+.aboutp{
+  font-size: 23px;
+  text-align: justify;
+}
+
+.org:hover{
+  color: #fff;
+}
+
