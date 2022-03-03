@@ -4,16 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us</title>
-    <link rel="stylesheet" href="bootstrap.min.css"/>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/login.css">
     <script src="https://kit.fontawesome.com/d19dff645a.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/aboutus.css">
+    
   </head>
   <body>
     <!-- Navbar  -->
     <nav class="navbar fixed-top navbar-expand-sm navbar-dark ">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img id="logo" src="organicus_logo.svg" alt=""></a>
+        <a class="navbar-brand" href="#"><img id="logo" src="../logo/organicus_logo.svg" alt=""></a>
         <button
           class="navbar-toggler"
           type="button"
@@ -40,7 +43,7 @@
             <li class="nav-item">
               <a class="nav-link text-white" href="#">Yard's Shop</a>
             </li>
-            <button class="button-8" role="button"><a href="login/user registration.html">Join</a></button>
+            <a href="authentication/user-registration.html"><button class="button-59" role="button">Join</button></a>
           </ul>
 
         </div>
@@ -48,7 +51,7 @@
     </nav>
 
 
-
+    <br><br>
     <!-- Main Content Area -->
     <div class="container my-5 d-grid gap-5">
       <div id="about" class="mx-auto">
@@ -73,16 +76,66 @@
         </p>
       </div>
     </div>
-    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- Footer Content Area -->
+    <footer class="footer-area">
+      <div class="container">
+          <div class="row justify-content-center align-items-center">
+              <div class="col-sm-8 mt-5 ">
+                  <p style="color:rgb(67, 100, 199)" >NO CREDIT CARD REQUIRED<p>
+                  <h2>Book a demo</h2>
+                  <div  class="mail-us mt-5">
+                      <input type="email" placeholder="Working Email">
+                      <button><i class="fa-solid fa-paper-plane"></i></button>
+                  </div>  
+              </div>
+
+              <div class="col-sm-4 mt-5">
+                  <img class="card-img" src="../logo/footer-logo_c.svg" alt="">
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-5 mt-5">
+                  <img id="logo" src="../logo/logo.svg" alt="">
+                  <p id="margin-left-8px" class="mt-3">Don't plant misconception, plant a tree.<p>
+              </div>
+              <div class="col-sm-7 mt-5">
+                  <div class="col footer-link-margin">
+                      <div class="mt-4 mx-5">Terms</div>
+                      <div class="mt-4 mx-5">Let's Chat</div>
+                      <div id="padding-left-23px" class="mt-4 mx-5">About</div>
+                  </div>
+                  <div class="col footer-link-margin">
+                      <div class="mt-4 mx-5">Jobs</div>
+                      <div class="mt-4 mx-5">Privacy Policy</div>
+                      <div class="mt-4 mx-5">Org@nikus.app</div>
+                  </div>
+                  <div class="col footer-link-margin">
+                      <div class="mt-4 mx-5">Docs</div>
+                      <div class="mt-4 mx-5">Cookies Policy</div>
+                      <div class="mt-4 mx-5">
+                          <div class="col">
+                              <i class="fa-solid fa-bath"></i>
+                              <i class="fa-solid fa-beer-mug-empty"></i>
+                              <i class="fa-solid fa-book-journal-whills"></i>
+                              <i class="fa-solid fa-fire"></i>
+                          </div>
+                      </div>
+                  </div>
+                    <div class="col-sm-4 offset-0 footer-link-margin">
+                      <div class="mt-4 mx-5">Security</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="../js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript">
       var nav = document.querySelector('nav');
 
       window.addEventListener('scroll', function () {
-        if (window.pageYOffset > 100) {
           nav.classList.add('bg-dark', 'shadow');
-        } else {
-          nav.classList.remove('bg-dark', 'shadow');
-        }
       });
     </script>
   </body>
