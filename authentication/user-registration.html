@@ -10,6 +10,7 @@
     <title>User Registration</title>
 </head>
 <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <div class="container">
         <div class="myCard">
             <div class="row">
@@ -31,8 +32,9 @@
 
                             <div class="form-group">
                                 <i class="fas fa-lock"></i>
-                                <input class="myInput" type="password" id="password" placeholder="Confirm Password" required>
+                                <input class="myInput" type="password" id="confirm_password" placeholder="Confirm Password" required>
                             </div>
+                            <span id="wrong_pass_alert"></span>
 
                             <div class="form-group">
                                 <label><input id="check_1" name="check_1" type="checkbox" required>
@@ -40,8 +42,7 @@
                                 <div class="invalid-feedback">You must check the box!
                                 </div></label>
                             </div>
-
-                            <input type="submit" class="butt curs" value="CREATE ACCOUNT">
+                            <input type="submit" id="submit" class="butt curs" value="CREATE ACCOUNT">
 
                         <div class="resp">
                             <div class="google-btn curs">
@@ -52,7 +53,7 @@
                             </div>
                         </div>
 
-                            <p id="form-foot">Already a user? <a href="#" id="anchor">LOG IN</a></p>
+                            <p id="form-foot">Already a user? <a href="login.html" class="anchor">LOG IN</a></p>
                         </form>
                     </div>
                 </div>
@@ -74,5 +75,34 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function(){
+            $("#submit").click(function(e){
+                e.preventDefault();
+                var email = $("#email").val();
+                //console.log(email);
+
+                var password = $("#password").val();
+                //console.log(password);
+
+                var confirm_password = $("#confirm_password").val();
+                //console.log(confirm_password);
+                $(location).attr("href", "../index.html");       //Dashboard link
+
+            });
+
+            $("#confirm_password").keyup(function(){
+                if( $("#password").val() != $("#confirm_password").val() ){
+                    $("#wrong_pass_alert").empty().append('<i class="fa-solid fa-xmark"></i> Use same password');
+                    $("#wrong_pass_alert").css("color", "red" );
+                    $("#confirm_password").css("border", "2px solid #FF0000" );
+                }else{
+                    $("#confirm_password").css("border", "2px solid #008000" );
+                    $("#wrong_pass_alert").empty();
+                }
+            });
+
+        });
+    </script>
 </body>
 </html>
