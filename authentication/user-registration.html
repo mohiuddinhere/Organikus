@@ -20,7 +20,8 @@
                             <header>CREATE NEW ACCOUNT</header>
                             <div class="form-group">
                                 <i class="fas fa-envelope"></i>
-                                <input class="myInput" placeholder="Email" type="text" id="email" required>
+                                <input class="myInput" placeholder="Email" type="email" id="email" required>
+                                <br>
                                 <span id="wrong_email_alert"></span>
                                 <div class="invalid-feedback">Please fill out this field
                                 </div>
@@ -29,6 +30,7 @@
                             <div class="form-group">
                                 <i class="fas fa-lock"></i>
                                 <input class="myInput" type="password" id="password" placeholder="Password" required>
+                                <br>
                                 <span id="required_pass_alert"></span>
                             </div>
 
@@ -45,14 +47,15 @@
                             <div class="form-group">
                                 <i class="fas fa-lock"></i>
                                 <input class="myInput" type="password" id="confirm_password" placeholder="Confirm Password" required>
+                                <br>
+                                <span id="wrong_pass_alert"></span>
                             </div>
-                            <span id="wrong_pass_alert"></span>
+                            
 
                             <div class="form-group">
-                                <label>
-                                    <input id="check_1" name="check_1" type="checkbox" required>
+                                <label for="checkTermsConditions">
+                                    <input id="checkTermsConditions" type="checkbox">
                                         <small>I read and agree to <a href="#" class="anchor">Terms and Conditions</a></small>
-                                    </input>
                                 <div class="invalid-feedback">You must check the box!</div>
                             </label>
                             </div>
@@ -89,6 +92,7 @@
             </div>
         </div>
     </div>
+    <script src="auth_scripts.js"></script>
     <script>
         $(document).ready(function(){
             $("#submit").click(function(e){
@@ -98,100 +102,28 @@
                 var password = $("#password").val();
 
                 var confirm_password = $("#confirm_password").val();
-
-                var pswdLengthValidation = false;
-                var pswdLetterValidation = false;
-                var pswdCapitalLetterValidation = false;
-                var pswdNumberValidation = false;
-
-                if(password == confirm_password && !password.empty()){
-                    $(location).attr("href", "../index.html");       //Dashboard link
-                }
                 
+                console.log(email);
+                console.log(password);
+                console.log(confirm_password);
+
+                if(password == confirm_password || !confirm_password.empty()){
+                    if(allPasswordValidate){
+                       // $(location).attr("href", "../index.html");       //Dashboard link
+                    }
+                }
+                console.log($("#checkTermsConditions").val());
 
             });
 
-            $("#email").blur(function(){
-                //           /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-                var email = $(this).val();
-                if(email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)){
-                    $("#wrong_email_alert").empty();
-                    $("#email").css("border", "2px solid #008000" );
-                }else{
-                    $("#wrong_email_alert").empty().append('Email is Not valid!');
-                    $("#wrong_email_alert").css("color", "red" );
-                    $("#email").css("border", "2px solid #FF0000" );
-                }
-            });
+            
 
 
-            $("#password").keyup(function(){
-                var pswd = $(this).val();
+            emailValidation();  //from auth_scripts.js
 
-                if ( pswd.length < 8 ) {
-                    $('#length').removeClass('valid').addClass('invalid');
-                    pswdLengthValidation = false;
-                } else {
-                    $('#length').removeClass('invalid').addClass('valid');
-                    pswdLengthValidation = true;
-                }
-                //validate letter
-                if ( pswd.match(/[A-z]/) ) {
-                    $('#letter').removeClass('invalid').addClass('valid');
-                    pswdLetterValidation = true;
-                } else {
-                    $('#letter').removeClass('valid').addClass('invalid');
-                    pswdLetterValidation = false;
-                }
+            passwordValidation(); //from auth_scripts.js
 
-                //validate capital letter
-                if ( pswd.match(/[A-Z]/) ) {
-                    $('#capital').removeClass('invalid').addClass('valid');
-                    pswdCapitalLetterValidation = true;
-                } else {
-                    $('#capital').removeClass('valid').addClass('invalid');
-                    pswdCapitalLetterValidation = false;
-                }
-
-                //validate number
-                if ( pswd.match(/\d/) ) {
-                    $('#number').removeClass('invalid').addClass('valid');
-                    pswdNumberValidation = true;
-                } else {
-                    $('#number').removeClass('valid').addClass('invalid');
-                    pswdNumberValidation = false;
-                }
-
-            }).focus(function() {
-                $('#pswd_info').show();
-                }).blur(function() {
-                $('#pswd_info').hide();
-                if(pswdLengthValidation && pswdLetterValidation && pswdCapitalLetterValidation && pswdNumberValidation){
-                    $("#password").css("border", "2px solid #008000" );
-                    $("#required_pass_alert").empty()
-                }else{
-                    $("#required_pass_alert").empty().append("Password meet the requirements!");
-                    $("#required_pass_alert").css("color", "red" );
-                    $("#password").css("border", "2px solid #FF0000" );
-                }
-
-
-            });
-
-            $("#confirm_password").keyup(function(){
-                if( $("#password").val() != $("#confirm_password").val() && $("#confirm_password").val().empty() ){
-
-                    $("#wrong_pass_alert").empty().append('Use same password');
-                    $("#wrong_pass_alert").css("color", "red" );
-                    $("#confirm_password").css("border", "2px solid #FF0000" );
-
-                }else{
-
-                    $("#confirm_password").css("border", "2px solid #008000" );
-                    $("#wrong_pass_alert").empty();
-
-                }
-            });
+            confirmPassword(); //form auth_scripts.js
 
         });
 

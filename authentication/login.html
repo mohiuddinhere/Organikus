@@ -11,6 +11,7 @@
     <title>Login</title>
 </head>
 <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <div class="container">
         <div class="myCard">
             <div class="row">
@@ -21,6 +22,8 @@
                             <div class="form-group">
                                 <i class="fas fa-envelope"></i>
                                 <input class="myInput" placeholder="Email" type="text" id="email" required>
+                                <br>
+                                <span id="wrong_email_alert"></span>
                                 <div class="invalid-feedback">Please fill out this field
                                 </div>
                             </div>
@@ -63,5 +66,14 @@
             </div>
         </div>
     </div>
+<script src="auth_scripts.js"></script>
+<script>
+    $(document).ready(function(){
+        
+        emailValidation();
+    });
+</script>
+
+
 </body>
 </html>
