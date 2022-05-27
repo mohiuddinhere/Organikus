@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../css/login2.css">
+    <title>User Registration</title>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <div class="container">
+        <div class="myCard">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="myLeftCtn">
+                        <form class="myForm text-center user-align">
+                            <header>CREATE NEW ACCOUNT</header>
+                            <div class="form-group">
+                                <i class="fas fa-envelope"></i>
+                                <input class="myInput" placeholder="Email" type="email" id="email" required>
+                                <br>
+                                <span id="wrong_email_alert"></span>
+                                <div class="invalid-feedback">Please fill out this field
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <i class="fas fa-lock"></i>
+                                <input class="myInput" type="password" id="password" placeholder="Password" required>
+                                <br>
+                                <span id="required_pass_alert"></span>
+                            </div>
+
+                            <div id="pswd_info">
+                                <h4>Password must meet the following requirements:</h4>
+                                <ul>
+                                    <li id="letter" class="invalid"> At least <strong>one letter</strong></li>
+                                    <li id="capital" class="invalid"> At least <strong>one capital letter</strong></li>
+                                    <li id="number" class="invalid"> At least <strong>one number</strong></li>
+                                    <li id="length" class="invalid"> Be at least <strong>8 characters</strong></li>
+                                </ul>
+                            </div>
+
+                            <div class="form-group">
+                                <i class="fas fa-lock"></i>
+                                <input class="myInput" type="password" id="confirm_password" placeholder="Confirm Password" required>
+                                <br>
+                                <span id="wrong_pass_alert"></span>
+                            </div>
+                            
+
+                            <div class="form-group">
+                                <label for="checkTermsConditions">
+                                    <input id="checkTermsConditions" type="checkbox" style="width: 13px;">
+                                        <small>I read and agree to <a href="#" class="anchor">Terms and Conditions</a></small>
+                                <div class="invalid-feedback">You must check the box!</div>
+                            </label>
+                            </div>
+                            <input type="submit" id="submit" class="butt curs" value="CREATE ACCOUNT">
+
+                        <div class="resp">
+                            <div class="google-btn curs">
+                                <div class="google-icon-wrapper">
+                                  <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                                </div>
+                                <p class="btn-text"><b>Continue with Google</b></p>
+                            </div>
+                        </div>
+
+                            <p id="form-foot">Already a user? <a href="login.html" class="anchor">LOG IN</a></p>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="myRightCtn">
+                        
+                        <div class="box">
+                        <img  class="organikus" src="../logo/organicus_logo.svg" class="img-fluid" alt="Responsive image">
+                        <header id="head">WELCOME TO <span class="org">ORGANICUS</span></header>
+                        <p class="fo-change">The main motto of ORGANICUS is to make farming and gardening easier for newbies and professional farmers around 
+                            the globe. We provide different tactics besides modern farming materials to get a good surplus out of your 
+                            production... 
+                        </p>
+                        <input type="button" class="butt_out learn curs" value="Learn More"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="auth_scripts.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#submit").click(function(e){
+                e.preventDefault();
+                var email = $("#email").val();
+
+                var password = $("#password").val();
+
+                var confirm_password = $("#confirm_password").val();
+                
+                // console.log(email);
+                // console.log(password);
+                // console.log(confirm_password);
+
+                if(password == confirm_password || !confirm_password.empty()){
+                    if(allPasswordValidate){
+                       // $(location).attr("href", "../index.html");       //Dashboard link
+                    }
+                }
+
+                var objectData =
+                {
+                    email: $("#email").val(),
+                    password: $("#password").val(),
+                    confirm_password: $("#confirm_password").val()              
+                }
+                
+
+                $.ajax({
+                    url: "process.php",
+                    type: "POST",
+                    data: objectData,
+                    dataType: "json",
+                    encode: true,
+                }).done(function (data) {
+                    console.log(data);
+                });
+                //console.log($("#checkTermsConditions").val());
+
+            });
+
+            
+
+
+            emailValidation();  //from auth_scripts.js
+
+            passwordValidation(); //from auth_scripts.js
+
+            confirmPassword(); //form auth_scripts.js
+
+        });
+
+    </script>
+</body>
+</html>

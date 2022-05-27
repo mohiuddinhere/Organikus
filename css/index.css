@@ -1,11 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Rajdhani:wght@300;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
 *{
     box-sizing: border-box;
     color: #edb41a;
 }
 *:focus {
     outline: none;
+}
+a{
+    text-decoration: none;
 }
 body{
     font-family: 'Josefin Sans', sans-serif;
@@ -42,13 +50,13 @@ input{
 .view,body,html{
     height:100%
 }.navbar{
-    background-color:rgba(0,0,0,.2)
+    background-color:rgba(0,0,0,.2);
 }.page-footer,.top-nav-collapse{
-    background-color:#212529
+    background-color:#212529;
 }
 @media only screen and (max-width:730px){
     .navbar{
-        background-color:#212529
+        background-color:#212529;
 }}
 
 .nav-item { 
@@ -117,7 +125,7 @@ input{
     border-bottom-left-radius: 6px;
     background: rgba(255, 255, 255, 0.164);
     border: none;
-    color: #102774;
+    color: #edb41a;
     padding: 0.9rem 1.25rem;
     width: 0;
     z-index: 1;
@@ -125,7 +133,7 @@ input{
     font-size: 17px;
 }
 .search_box input::placeholder{
-    color: #102774;
+    color: #edb41a;
 }
 .search_box button{
     background-color: rgba(255, 255, 255, 0.164);;
@@ -146,49 +154,58 @@ input{
 .search_box button:hover{
     background-color: rgba(228, 225, 225, 0.322);
 }
-.button-8 {
-    
-    outline: none;
-    background-color: rgba(209, 197, 33, 0);
-    border-radius: 3px;
-    border: 1px solid rgba(228, 225, 225, 0.466);
-    box-shadow: rgba(228, 225, 225, 0.466) 0 1px 0 0 inset;
-    box-sizing: border-box;
-    color: #edb41a;
-    cursor: pointer;
-    display: inline-block;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    line-height: .3;
-    margin-left: 20px;
-    outline: none;
-    padding: .3rem 2rem;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    vertical-align: baseline;
-    white-space: nowrap;
-    height: 2rem;
-}
-.button-8:hover,
-.button-8:focus {
-    text-decoration: none;
-    outline: none;
-    background-color: rgba(228, 225, 225, 0.123);
-    color: #edb41a;
-}
-.button-8:focus {
-    outline: none;
-}
-.button-8:active {
-    outline: none;
-  background-color: rgba(228, 225, 225, 0.466);
-  box-shadow: none;
+
+/* CSS */
+.button-59 {
+  margin-left: 5px;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0);
+  border: 2px solid #edb41a;
+  box-sizing: border-box;
   color: #edb41a;
+  cursor: pointer;
+  display: inline-flex;
+  fill: #edb41a;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  height: 30px;
+  justify-content: center;
+  letter-spacing: -.8px;
+  line-height: 24px;
+  min-width: 140px;
+  outline: 0;
+  padding: 0 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-59:focus {
+  color: #171e29;
+}
+
+.button-59:hover {
+  border: none;
+  background-color: #edb41a;
+  color: #212529;
+  background: rgb(218,218,218);
+  background: radial-gradient(circle, rgba(218,218,218,1) 0%, rgba(237,180,26,1) 100%);
+  transition: all .3s ease-out;
+}
+
+.button-59:active {
+  background-color: #edb41a;
+  color: #212529;
+}
+
+@media (min-width: 768px) {
+  .button-59 {
+    min-width: 80px;
+  }
 }
 .card-logo{
     font-size:3rem ;
@@ -272,6 +289,9 @@ input{
     color: #212529;
 }
 
+.justification{
+    text-align: justify;
+}
 .footer-link-margin{
     display: flex;
     flex-direction: row;
@@ -306,3 +326,19 @@ input{
   @keyframes b{
     50% {background-position:0 -100%,0 0}
   }
+.stady-more{
+    display: flex;
+    align-items: baseline;
+}
+.stady-more a{
+    margin-right: 5px;
+}
+.padding-top-10rem{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+.feature-liner-nav{
+    background: rgb(56,87,180);
+    background: radial-gradient(circle, rgba(56,87,180,1) 0%, rgba(144,118,54,1) 100%);
+    border-radius: 3% 3% 3% 3% / 50% 50% 50% 50%;
+}

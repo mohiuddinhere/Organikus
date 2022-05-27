@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/login2.css">
     
     <title>Login</title>
 </head>
 <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <div class="container">
         <div class="myCard">
             <div class="row">
@@ -21,6 +22,8 @@
                             <div class="form-group">
                                 <i class="fas fa-envelope"></i>
                                 <input class="myInput" placeholder="Email" type="text" id="email" required>
+                                <br>
+                                <span id="wrong_email_alert"></span>
                                 <div class="invalid-feedback">Please fill out this field
                                 </div>
                             </div>
@@ -41,7 +44,7 @@
                             </div>
                         </div>
 
-                            <p id="form-foot">Don't have an account? <a href="#" class="anchor">SIGN UP</a></p>
+                            <p id="form-foot">Don't have an account? <a href="user-registration.html" class="anchor">SIGN UP</a></p>
                         </form>
                     </div>
                 </div>
@@ -50,7 +53,7 @@
                     <div class="myRightCtn">
                         
                         <div class="box">
-                        <img  class="organikus" src="organicus_logo.svg" class="img-fluid" alt="Responsive image">
+                        <img  class="organikus" src="../logo/organicus_logo.svg" class="img-fluid" alt="Responsive image">
                         <header id="head">WELCOME TO <span class="org">ORGANICUS</span></header>
                         <p class="fo-change">The main motto of ORGANICUS is to make farming and gardening easier for newbies and professional farmers around 
                             the globe. We provide different tactics besides modern farming materials to get a good surplus out of your 
@@ -63,5 +66,14 @@
             </div>
         </div>
     </div>
+<script src="auth_scripts.js"></script>
+<script>
+    $(document).ready(function(){
+        
+        emailValidation();
+    });
+</script>
+
+
 </body>
 </html>

@@ -9,7 +9,7 @@
 }
 
 html{
-    background: url(back.jpg) no-repeat center center fixed; 
+    background: url(img/back.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -134,7 +134,7 @@ body{
         background: transparent;
         color: #edb41a;
         width: 120px;
-        border: 2px solid#edb41a;
+        border: 2px solid #edb41a;
         border-radius: 25px;
         padding: 10px;
         -webkit-box-shadow: 0px 10px 49px -14px rgba(0, 0, 0, 0.7);
@@ -143,7 +143,7 @@ body{
       } 
 
       .butt_out:hover {
-        border: 2px solid#ffffff;
+        border: 2px solid #ffffff;
       } 
 
       .butt_out:focus {
@@ -209,6 +209,121 @@ body{
 
 .ass{
   padding-top: 0px;
+}
+
+#pswd_info  li{
+  margin-left:5px;
+  padding:0;
+  list-style-type:none;
+  text-align: start;
+}
+input {
+  padding:10px 10px;
+  border:1px solid #d5d9da;
+  border-radius:5px;
+  box-shadow: 0 0 5px #e8e9eb inset;
+  width:328px; /* 400 (#container) - 40 (li margins) -  10 (span paddings) - 20 (input paddings) - 2 (input borders) */
+  font-size:1em;
+  outline:0; /* remove webkit focus styles */
+}
+input:focus {
+  border:1px solid #b9d4e9;
+  border-top-color:#b6d5ea;
+  border-bottom-color:#b8d4ea;
+  box-shadow:0 0 5px #b9d4e9;
+}
+#check_1{
+  width: 20px !important;
+}
+#pswd_info {
+  font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans serif;
+  position:absolute;
+  top:15px;
+  right:270px;
+  width:250px;
+  padding:15px;
+  background:#fefefe;
+  font-size:.875em;
+  border-radius:5px;
+  box-shadow:0 1px 3px #ccc;
+  border:1px solid #ddd;
+}
+#pswd_info {
+  display:none;
+}
+#pswd_info h4 {
+  margin:0 0 10px 0;
+  padding:0;
+  font-size: large;
+  font-weight: bold;
+  font-weight:normal;
+}
+
+#pswd_info::before {
+  content: "\25B2";
+  transform: rotate(90deg);
+  position:absolute;
+  right: -150px;
+  top:100px;
+  left:45%;
+  font-size:14px;
+  line-height:14px;
+  color:#ddd;
+  text-shadow:none;
+  display:block;
+}
+
+#pswd_info_container {
+  width:400px;
+  padding:0px;
+  background:#fefefe;
+  margin:0 auto;
+  border:1px solid #c4cddb;
+  border-top-color:#d3dbde;
+  border-bottom-color:#bfc9dc;
+  box-shadow:0 1px 1px #ccc;
+  border-radius:5px;
+  position:relative;
+}
+#pswd_info_container h1{
+    margin:0;
+    padding:10px 0;
+    font-size:24px;
+    text-align:center;
+    background:#eff4f7;
+    border-bottom:1px solid #dde0e7;
+    box-shadow:0 -1px 0 #fff inset;
+    border-radius:5px 5px 0 0; /* otherwise we get some uncut corners with container div */
+    text-shadow:1px 1px 0 #fff;
+}
+
+.invalid {
+  /* content: "\f00d"; */
+  padding-left:22px;
+  line-height:24px;
+  color:#ec3f41;
+}
+.invalid::before{
+  content: "\292C";
+  padding-left:22px;
+  font-size:20px;
+  font-weight: bold;
+  line-height:14px;
+  color:#ec3f41;
+}
+
+.valid {
+  padding-left:22px;
+  line-height:24px;
+  color:#3a7d34;
+}
+.valid::before{
+  content: "\2713";
+  padding-left:22px;
+  font-size:20px;
+  font-weight: bold;
+  line-height:14px;
+  color:#3a7d34;
 }
 
 /* .goog{
