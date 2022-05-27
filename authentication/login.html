@@ -33,7 +33,7 @@
                                 <input class="myInput" type="password" id="password" placeholder="Password" required>
                             </div>
 
-                            <input type="submit" class="butt curs log-siz" value="LOGIN">
+                            <input type="submit" id="submit" class="butt curs log-siz" value="LOGIN">
 
                         <div class="resp">
                             <div class="google-btn curs">
@@ -69,8 +69,32 @@
 <script src="auth_scripts.js"></script>
 <script>
     $(document).ready(function(){
-        
-        emailValidation();
+        $("#submit").click(function(e){
+                e.preventDefault();
+
+                var email = $("#email").val();
+                var password = $("#password").val();
+
+                emailValidation();     
+
+                var loginInfo =
+                {
+                    email: $("#email").val(),
+                    password: $("#password").val(),             
+                }
+                
+
+                $.ajax({
+                    url: "loginProcess.php",
+                    type: "POST",
+                    data: loginInfo,
+                    dataType: "json",
+                    encode: true,
+                }).done(function (data) {
+                    console.log(data);
+                });
+                //console.log($("#checkTermsConditions").val());
+            });
     });
 </script>
 
