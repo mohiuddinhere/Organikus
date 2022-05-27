@@ -103,16 +103,34 @@
 
                 var confirm_password = $("#confirm_password").val();
                 
-                console.log(email);
-                console.log(password);
-                console.log(confirm_password);
+                // console.log(email);
+                // console.log(password);
+                // console.log(confirm_password);
 
                 if(password == confirm_password || !confirm_password.empty()){
                     if(allPasswordValidate){
                        // $(location).attr("href", "../index.html");       //Dashboard link
                     }
                 }
-                console.log($("#checkTermsConditions").val());
+
+                var objectData =
+                {
+                    email: $("#email").val(),
+                    password: $("#password").val(),
+                    confirm_password: $("#confirm_password").val()              
+                }
+                
+
+                $.ajax({
+                    url: "process.php",
+                    type: "POST",
+                    data: objectData,
+                    dataType: "json",
+                    encode: true,
+                }).done(function (data) {
+                    console.log(data);
+                });
+                //console.log($("#checkTermsConditions").val());
 
             });
 
