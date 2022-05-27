@@ -4,7 +4,7 @@ $email = $_REQUEST['email'];
 $password = $_REQUEST['password'];
 $confirm_password = $_REQUEST['confirm_password'];
 
-
+// echo $email;
 
 
     //echo $email;
