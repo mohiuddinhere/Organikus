@@ -50,3 +50,15 @@
 13a (60 to 65 °F/15.6 to 18.3 °C)
 	
 13b (65 to 70 °F/18.3 to 21.1 °C)
+
+
+
+
+<script type="text/javascript">
+              var locationPoint = "23.968187/90.397005";
+              var mapAPILink = "https://api.mapbox.com/styles/v1/mohiuhere/ckzwoh7sz002g15ko32szg4vf.html?title=false&access_token=pk.eyJ1IjoibW9oaXVoZXJlIiwiYSI6ImNrendubm55bTAyM3Mybm5xa2NlaDFyNjgifQ.mUHouLmuKuLilWX3gYrwMg&zoomwheel=true#5/";
+              var mapPosition = mapAPILink + locationPoint;
+              var map = document.getElementById("location");;
+              map.src(mapPosition);
+              console.log(mapPosition);
+          </script>
