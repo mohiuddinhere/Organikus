@@ -7,7 +7,33 @@ $email = $_REQUEST['email'];
 $password = $_REQUEST['password'];
 $confirm_password = $_REQUEST['confirm_password'];
 
+$checkEmail = emailValidation($email);
+
+$checkPass = passwordValidation($password);
+// echo $checkPass;
+
+$str1 = "SELECT email FROM registereduser WHERE email='$email'";
+$result = mysqli_query($conn, $str1);
+// $checkExistingEmail = mysqli_query($conn, $str1);
+// $row = ;
+// echo $row;
+
+if(mysqli_num_rows($result)<=0)
+{
+	if($password == $confirm_password && $checkPass == 1 && $checkEmail == 1)
+	{
+		$str = "INSERT INTO registereduser(email, password) VALUES ('$email', '$password')";
+		mysqli_query($conn, $str);
+	}
+}
+else
+{
+	echo "Email Exists!";
+}
+
+
 // echo $email;
+
 
     // echo $email;
     //echo "sxsxs";
