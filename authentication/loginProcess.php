@@ -3,6 +3,6 @@
 $email = $_REQUEST['email'];
 $password = $_REQUEST['password'];
 
-// echo $email;
+// echo $password;
 
 ?>
