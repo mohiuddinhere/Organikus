@@ -1,0 +1,27 @@
+{
+    ["query"]=> object(stdClass)#2 (2) 
+
+    { ["codes"]=> array(1) 
+
+    { [0]=> string(4) "4225" }
+
+     ["country"]=> string(2) "BD" }
+
+     ["results"]=> object(stdClass)#5 (1) 
+     { ["4225"]=> array(1) 
+     { [0]=> object(stdClass)#4 (11) 
+     { ["postal_code"]=> string(4) "4225" 
+     ["country_code"]=> string(2) "BD" 
+     ["latitude"]=> string(11) "22.39480000" 
+     ["longitude"]=> string(11) "91.83650000" 
+     ["city"]=> string(10) "Halishshar" 
+     ["state"]=> string(10) "Chittagong" 
+     ["city_en"]=> string(10) "Halishshar" 
+     ["state_en"]=> string(10) "Chittagong" 
+     ["state_code"]=> string(2) "84" 
+     ["province"]=> string(10) "Chittagong" 
+     ["province_code"]=> string(4) "2015" 
+     } 
+     } 
+     } 
+}

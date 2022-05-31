@@ -13,9 +13,11 @@
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
     mapbox://styles/mohiuhere/ckzwoh7sz002g15ko32szg4vf -->
     <script src="../js/script.js" defer></script>
+    
     <title>Organikus || Hardiness Zone</title>
 </head>
 <body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <nav class="navbar fixed-top navbar-expand-sm navbar-dark ">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img id="logo" src="../logo/logo.svg" alt=""></a>
@@ -65,14 +67,15 @@
     <div class="row container-fluid justify-content-center align-items-center">
         <div class="col-sm-7 ">
             <!-- <div class="map-box" id='map'></div> -->
-            <iframe class="map-box rounded border" src="https://api.mapbox.com/styles/v1/mohiuhere/ckzwoh7sz002g15ko32szg4vf.html?title=false&access_token=pk.eyJ1IjoibW9oaXVoZXJlIiwiYSI6ImNrendubm55bTAyM3Mybm5xa2NlaDFyNjgifQ.mUHouLmuKuLilWX3gYrwMg&zoomwheel=true#5/23.968187/90.397005" title="Basic" style="border:none;"></iframe>
+          
+            <iframe id="location" src="" class="map-box rounded border" title="Basic" style="border:none;"></iframe>
         </div>
 
         <div class="col-sm-5">
             <h2>FIND YOUR HARDINESS ZONE:</h2>
             <div class="hardiness-zone-lookup mt-5">
-                <input type="number" placeholder="Enter Zip Code">
-                <button>LOOKUP</i></button>
+                <input type="number" id="zipcode" placeholder="Enter Zip Code">
+                <button id="submitZip">LOOKUP</button>
             </div>
             <div class="col mt-2">
                 <p class="hardiness-zone-text">The 2012 USDA Plant Hardiness Zone Map is the standard by which 
@@ -193,11 +196,58 @@
 <script src="../js/bootstrap.bundle.min.js"></script>
 
 <script type="text/javascript">
-  var nav = document.querySelector('nav');
+var nav = document.querySelector('nav');
 
-  window.addEventListener('scroll', function () {
-      nav.classList.add('bg-dark', 'shadow');
-  });
+    window.addEventListener('scroll', function () {
+        nav.classList.add('bg-dark', 'shadow');
+    });
+
+
+    $(document).ready(function(){
+        $("#submitZip").click(function(e){
+            e.preventDefault();
+            var zip = $("#zipcode").val();
+            console.log(zip);
+
+            var locationPoint = "";
+            var place = "";
+
+            $.ajax({
+                url: "zip-location.php",
+                    type: "POST",
+                    data: {
+                        zipcode: zip
+                    },
+                    dataType: "json",
+                    encode: true,
+            }).done(function (obj) {
+                if(!obj.data){
+                    locationPoint = obj.locationPoint;
+                    console.log(locationPoint);
+                    place = obj.place;
+
+                    var mapAPILink = "https://api.mapbox.com/styles/v1/mohiuhere/ckzwoh7sz002g15ko32szg4vf.html?title=false&access_token=pk.eyJ1IjoibW9oaXVoZXJlIiwiYSI6ImNrendubm55bTAyM3Mybm5xa2NlaDFyNjgifQ.mUHouLmuKuLilWX3gYrwMg&zoomwheel=true#11/";
+                    var mapPosition = mapAPILink.concat(locationPoint);
+                    console.log(mapPosition);
+                    console.log(locationPoint);
+                    var map = document.getElementById("location");
+                    map.src = mapPosition;
+                }else{
+                    
+                }
+
+            });
+
+            
+        });
+    });
+
+    // var mapAPILink = "https://api.mapbox.com/styles/v1/mohiuhere/ckzwoh7sz002g15ko32szg4vf.html?title=false&access_token=pk.eyJ1IjoibW9oaXVoZXJlIiwiYSI6ImNrendubm55bTAyM3Mybm5xa2NlaDFyNjgifQ.mUHouLmuKuLilWX3gYrwMg&zoomwheel=true#5/";
+    // var mapPosition = mapAPILink.concat(locationPoint);
+    // var map = document.getElementById("location");
+    // map.src = mapPosition;
+      
+
 </script>
 </body>
 
