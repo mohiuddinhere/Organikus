@@ -7,16 +7,7 @@ $email = $_REQUEST['email'];
 $password = $_REQUEST['password'];
 $confirm_password = $_REQUEST['confirm_password'];
 
-$checkEmail = emailValidation($email);
-
-echo $checkEmail;
-
-// if($password == $confirm_password)
-// {
-// 	$str = "INSERT INTO registereduser(email, password) VALUES ('$email', '$password')";
-// 	mysqli_query($conn, $str);
-// }
-
+// echo $email;
 
     // echo $email;
     //echo "sxsxs";

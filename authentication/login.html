@@ -21,7 +21,7 @@
                             <header>LOGIN</header>
                             <div class="form-group">
                                 <i class="fas fa-envelope"></i>
-                                <input class="myInput" placeholder="Email" type="text" id="email" required>
+                                <input class="myInput" placeholder="Email" type="email" id="email" required>
                                 <br>
                                 <span id="wrong_email_alert"></span>
                                 <div class="invalid-feedback">Please fill out this field
@@ -74,16 +74,18 @@
 
                 var email = $("#email").val();
                 var password = $("#password").val();
-
-                emailValidation();     
+                
+                emailValidation();
+                // console.log(email);
+                // console.log(password);
+                // console.log(confirm_password);
 
                 var loginInfo =
                 {
                     email: $("#email").val(),
-                    password: $("#password").val(),             
+                    password: $("#password").val(),           
                 }
                 
-
                 $.ajax({
                     url: "loginProcess.php",
                     type: "POST",
@@ -94,7 +96,7 @@
                     console.log(data);
                 });
                 //console.log($("#checkTermsConditions").val());
-            });
+        });
     });
 </script>
 
