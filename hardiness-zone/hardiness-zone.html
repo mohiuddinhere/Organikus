@@ -65,9 +65,23 @@
     <!--map and zip search bar-->
       
     <div class="row container-fluid justify-content-center align-items-center">
-        <div class="col-sm-7 ">
+        <div class="col-sm-7 " >
             <!-- <div class="map-box" id='map'></div> -->
-          
+            <div id="mapFrame">
+                <h2 >Enter Your Zip</h2>
+                <p id="mapFrameAboutZip">The 2012 USDA Plant Hardiness Zone Map is the standard by which 
+                gardeners and growers can determine which plants are most likely 
+                to thrive at a location. The map is based on the average annual 
+                minimum winter temperature, divided into 10-degree F zones.
+                For the first time, the map is available as an interactive GIS-based 
+                map (above), for which a broadband Internet connection is recommended, 
+                and as static images for those with slower Internet access. Users may 
+                also simply type in a ZIP Code and find the hardiness zone for that area.
+                No posters of the USDA Plant Hardiness Zone Map have been printed. But 
+                state, regional, and national images of the map can be downloaded and printed 
+                in a variety of sizes and resolutions.</p>
+            </div>
+            
             <iframe id="location" src="" class="map-box rounded border" title="Basic" style="border:none;"></iframe>
         </div>
 
@@ -77,6 +91,7 @@
                 <input type="number" id="zipcode" placeholder="Enter Zip Code">
                 <button id="submitZip">LOOKUP</button>
             </div>
+            <span id="wrong_zip_alert"></span>
             <div class="col mt-2">
                 <p class="hardiness-zone-text">The 2012 USDA Plant Hardiness Zone Map is the standard by which 
                     gardeners and growers can determine which plants are most likely 
@@ -95,13 +110,13 @@
     </div>
 
     <!---Hardiness Zone Result-->
-    <div class="zone-result-div mt-5">
+    <div class="zone-result-div mt-5" id="zoneOutput">
         <h1>Your Hardiness Zone</h1>
-        <button>4a</button>
+        <button id="zoneResult">4a</button>
     </div>
     
     <!--Recommended Tree from Zone Result -->
-    <div class="row container-fluid">
+    <div class="row container-fluid" id="recommendedTreeFromZone">
         
         <div class="col-sm-2">
             <div class="dropdown">
@@ -118,27 +133,9 @@
               </div>
         </div>
 
-        <div class="col-sm-3">
-            <figure class="figure">
-                <img src="../img/pexels-lukas-hartmann-1557652-min.jpg" class="figure-img img-fluid rounded" alt="...">
-                <figcaption class="figure-caption text-center">A caption for the above image.</figcaption>
-              </figure>
-        </div>
-
-        <div class="col-sm-3">
-            <figure class="figure">
-                <img src="../img/pexels-lukas-hartmann-1557652-min.jpg" class="figure-img img-fluid rounded" alt="...">
-                <figcaption class="figure-caption text-center">A caption for the above image.</figcaption>
-              </figure>
-        </div>
-
-        <div class="col-sm-3">
-            <figure class="figure">
-                <img src="../img/pexels-lukas-hartmann-1557652-min.jpg" class="figure-img img-fluid rounded" alt="...">
-                <figcaption class="figure-caption text-center">A caption for the above image.</figcaption>
-              </figure>
-        </div>
-    </div>
+        <!-- <div class="col-sm-3" id="treeList"><figure class='figure'><h2 id='treeName'></h2><img src='../img/pexels-lukas-hartmann-1557652-min.jpg' class='figure-img img-fluid rounded' alt='...'><figcaption class='figure-caption text-center'>A caption for the above image.</figcaption></figure></div> -->
+    
+      </div>
 
 
 
@@ -194,17 +191,28 @@
         </div>
       </footer>
 <script src="../js/bootstrap.bundle.min.js"></script>
-
-<script type="text/javascript">
-var nav = document.querySelector('nav');
+<script src="hardiness.js"></script>
+<!-- <script type="text/javascript">
+    var nav = document.querySelector('nav');
 
     window.addEventListener('scroll', function () {
         nav.classList.add('bg-dark', 'shadow');
     });
 
+    $("#location").hide();
+    $("#zoneOutput").hide();
+    $("#recommendedTreeFromZone").hide();
+    
+    
+    $("#mapFrame").css({
+        "display": "contents",
+        "text-align": "center"
+    });
+    $("#mapFrameAboutZip").css("text-align", "justify");
 
     $(document).ready(function(){
         $("#submitZip").click(function(e){
+
             e.preventDefault();
             var zip = $("#zipcode").val();
             console.log(zip);
@@ -221,19 +229,32 @@ var nav = document.querySelector('nav');
                     dataType: "json",
                     encode: true,
             }).done(function (obj) {
-                if(!obj.data){
+                console.log(obj.data);
+                if(obj.data == "true"){
+                    $("#wrong_zip_alert").empty();
+                    $("#zipcode").css("border-bottom", "1px solid #ffffff");
+                    $("#mapFrame").hide();
+                    $("#location").css("display", "inline-block");
+                    $("#zoneOutput").show();
+                    $("#recommendedTreeFromZone").show();
+                    $("#zoneResult").empty().append(obj.hardiness_zone);
                     locationPoint = obj.locationPoint;
-                    console.log(locationPoint);
                     place = obj.place;
 
+                    
                     var mapAPILink = "https://api.mapbox.com/styles/v1/mohiuhere/ckzwoh7sz002g15ko32szg4vf.html?title=false&access_token=pk.eyJ1IjoibW9oaXVoZXJlIiwiYSI6ImNrendubm55bTAyM3Mybm5xa2NlaDFyNjgifQ.mUHouLmuKuLilWX3gYrwMg&zoomwheel=true#11/";
                     var mapPosition = mapAPILink.concat(locationPoint);
                     console.log(mapPosition);
                     console.log(locationPoint);
                     var map = document.getElementById("location");
                     map.src = mapPosition;
-                }else{
-                    
+                }else if(obj.data = 'false'){
+                  
+                    $("#location").hide();
+                    $("#mapFrame").show();
+                    $("#wrong_zip_alert").empty().append('Zip is Not valid for Bangladesh!');
+                    $("#wrong_zip_alert").css("color", "red" );
+                    $("#zipcode").css("border-bottom", "1px solid #FF0000" );
                 }
 
             });
@@ -242,13 +263,7 @@ var nav = document.querySelector('nav');
         });
     });
 
-    // var mapAPILink = "https://api.mapbox.com/styles/v1/mohiuhere/ckzwoh7sz002g15ko32szg4vf.html?title=false&access_token=pk.eyJ1IjoibW9oaXVoZXJlIiwiYSI6ImNrendubm55bTAyM3Mybm5xa2NlaDFyNjgifQ.mUHouLmuKuLilWX3gYrwMg&zoomwheel=true#5/";
-    // var mapPosition = mapAPILink.concat(locationPoint);
-    // var map = document.getElementById("location");
-    // map.src = mapPosition;
-      
-
-</script>
+</script> -->
 </body>
 
 </html>

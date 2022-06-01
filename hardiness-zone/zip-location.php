@@ -1,4 +1,7 @@
 <?php
+$tree = ["Banyan Tree","Neem Tree","Peepal Tree"];
+
+$hardinessZone = "5b";
 $zipCode = $_REQUEST['zipcode'];
 $countryCode = "BD";
 $ch = curl_init();
@@ -23,12 +26,12 @@ curl_close($ch);
 $json = json_decode($response, true);
 
 
-//var_dump($json);
+// var_dump($json);
 // echo "<pre>";
 // print_r($json);
 // echo "</pre>";
 $obj = [];
-if($zipCode != ""){
+if($json['results']){
     $latitude = $json['results']["$zipCode"][0]['latitude'];
     $longitude = $json['results']["$zipCode"][0]['longitude'];
     $palce = $json['results']["$zipCode"][0]['city'];
@@ -36,14 +39,15 @@ if($zipCode != ""){
 
     $obj['palce'] = $palce;
     $obj['locationPoint'] = $locationPoint;
+    $obj['hardiness_zone'] = $hardinessZone;
+    $obj['tree_array'] = $tree;
+    $obj['data'] = 'true';
     echo json_encode($obj);
-}else if(empty($json.['results'])){
-    $obj['data'] = false;
-}else{
-    $obj['data'] = false;
-}
+}else if(!$json['results']) {
+    $obj['data'] = 'false';
+    echo json_encode($obj);
+} 
 
 
 
 ?>
-
