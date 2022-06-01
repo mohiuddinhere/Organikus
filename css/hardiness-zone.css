@@ -184,3 +184,9 @@ body {
   .fw-semibold { font-weight: 400; }
   .lh-tight { line-height: 1.25; }
   
+  .display-none{
+    display: none;
+  }
+  .display-element{
+    display: contents;
+  }
