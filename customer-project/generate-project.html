@@ -56,18 +56,20 @@
         
         <br>
         <div class="container">
-            <button>Back To All Project</button>
-            <form action="" class="">
+            <button class="btn btn-primary add_field_button">Back To All Project</button>
+            <form action="" class="" method="POST">
                 <div class="row mt-5">
                     <h3>General</h3>
                     <div class="col-5 mt-2">
                         <div class="mb-3">
                             <label for="project_name" class="form-label">Project Name</label>
                             <input type="text" id="project_name" class="form-control">
+                            <span id="name_invalid"></span>
                         </div>
                         <div class="mb-3">
-                            <label for="project_name" class="form-label">Project Location</label>
-                            <input type="text" id="project_name" class="form-control">
+                            <label for="project_location" class="form-label">Project Location</label>
+                            <input type="text" id="project_location" class="form-control">
+                            <span id="location_invalid"></span>
                         </div>
                     </div>
                     <div class="col-sm-7 mt-5">
@@ -77,37 +79,38 @@
                 </div>
                 <div class="row">
                     <div class="col-5 mt-5">
-                        <label for="project_name" class="form-label">Operation Type</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option value="1">Vertical Farming</option>
-                            <option value="2">Greenhouse</option>
-                            <option value="3">Livestock Farming</option>
-                        </select>
+                        <label for="operationcategory" class="form-label">Operation Type</label>
+                        <select class="form-select" id="operationcategory" aria-label="Default select example">
+                            <option value="">Select Operation Type</option>
+                        </select> 
                     </div>
 
                     <div class="row mt-5">
                         <h3>Site Area</h3>
                         <div class="col-sm-6 mt-2">
-                            <label for="site-area" class="form-label">Site Area(In feet)</label>
-                            <input type="number" class="form-control">
+                            <label for="sitearea" class="form-label">Site Area(In feet)</label>
+                            <input type="number" id="sitearea" class="form-control">
+                            <span id="invalid_site"></span>
                         </div>
-                        <div class="col-sm-6 mt-2">
+                        <!-- <div class="col-sm-6 mt-2">
                             <label for="project_name" class="form-label">Site type</label>
                             <select class="form-select" aria-label="Default select example">
                                 <option value="1">Yard Gardening</option>
                                 <option value="2">Rooftop Gardening</option>
                             </select>
-                        </div>
+                        </div> -->
                     </div>
 
-                    <div class="row mt-5 mb-5">
+                    <!-- <div class="row mt-5 mb-5">
                         <h3>Crops</h3>
                         <div class="input_fields_wrap">
                             <button class=" btn btn-primary add_field_button"><i class="text-dark fa-solid fa-plus"></i>Add New Crop</button>
                         </div>
-                    </div>
+                    </div> -->
                     
-
+                    <div class="col-6 mt-5">
+                        <button class="btn btn-primary add_field_button px-5" id="submit">SUBMIT</button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -169,6 +172,7 @@
 </body>
 <script src="../js/script.js"></script>
 <script src="../js/bootstrap.bundle.min.js"></script>
+<script src="project_function.js"></script>
 
 <script type="text/javascript">
   var nav = document.querySelector('nav');
@@ -176,5 +180,68 @@
   window.addEventListener('scroll', function () {
       nav.classList.add('bg-dark', 'shadow');
   });
+
+  //for dropdown menu
+  $(document).ready(function(){
+        // $("#operationcategory").change(function(e){
+                // e.preventDefault();
+
+                $.ajax({
+                    url: "generate-project.php",
+                    type: "GET",
+                    success: function(response){
+                        // console.log(response);
+                        // $('#operationcategory').empty();
+                        // $('#operationcategory').append($("<option>Select Operation Type</option>"));
+
+                        $.each(response, function(index, value) {   
+                            $('#operationcategory')
+                                .append($("<option></option>")
+                                            .attr("value", value.id)
+                                            .text(value.name)); 
+                        });
+                    }
+                });
+                //console.log($("#checkTermsConditions").val());
+        // });
+    });
+</script>
+
+<script>
+//for submit button
+$(document).ready(function(){
+    $("#submit").click(function(e){
+        e.preventDefault();
+        
+        nameValidation();
+        locationValidation();
+        siteValidation();
+
+        var info = 
+        {
+            name: $('#project_name').val(),
+            location: $('#project_location').val(),
+            operartype: $('#operationcategory').val(),
+            site: $('#sitearea').val(),
+        }
+        // var name = $('#project_name').val();
+        // var location = $('#project_location').val();
+        // var operartype = $('#operationcategory').val();
+        // var site = $('#sitearea').val();
+
+                $.ajax({
+                    url: "get-generate-data.php",
+                    type: "POST",
+                    data: info,
+                    dataType: "json",
+                    encode: true,
+                }).done(function (data) {
+                    console.log(data);
+                });
+                //console.log($("#checkTermsConditions").val());
+        // });
+    });
+});
+
 </script>
 </html>

@@ -28,6 +28,7 @@
           if(x < max_fields){ //max input box allowed
             x++; //text box increment
             $(wrapper).append('<div class="row"> <div class="col-4 mt-2"> <label for="site-area" class="form-label">Crop</label> <input type="text" class="form-control"> </div> <div class="col-4 mt-2"> <label for="site-area" class="form-label">Grow System</label> <input type="text" class="form-control"> </div> <div class="col-4 mt-2"> <label for="site-area" class="form-label">Percentage(%)</label> <input type="number" class="form-control"> </div><button class="btn btn-primary remove-btn remove_field">Remove</button></div></div>'); //add input box
+            
           }
         });
         
