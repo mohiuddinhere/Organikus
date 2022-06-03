@@ -45,3 +45,33 @@ function siteValidation() {
         }
     });
 }
+
+function percentageValidation(){
+    $(".percentagevalidation").blur(function(){
+        var percentage = $(this).val();
+
+        if(percentage<=100 && percentage!=null){
+            $(".validatepercentage").empty();
+            $(".percentagevalidation").css("border", "2px solid #008000" );
+        }else{
+            $(".validatepercentage").empty().append('Percentage can only be upto 100!');
+            $(".validatepercentage").css("color", "red" );
+            $(".percentagevalidation").css("border", "2px solid #FF0000" );
+        }
+    });
+}
+
+// function growSystemValidation(){
+//     $(".growSystemValid").blur(function(){
+//         var growSystem = $(this).val();
+
+//         if(growSystem!=null){
+//             $(".validGrowSystem").empty();
+//             $(".growSystemValid").css("border", "2px solid #008000" );
+//         }else{
+//             $(".validGrowSystem").empty().append('Site Area Not valid!');
+//             $(".validGrowSystem").css("color", "red" );
+//             $(".growSystemValid").css("border", "2px solid #FF0000" );
+//         }
+//     });
+// }
