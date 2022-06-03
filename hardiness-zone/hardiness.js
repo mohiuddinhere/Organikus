@@ -35,7 +35,8 @@
                     dataType: "json",
                     encode: true,
             }).done(function (obj) {
-                console.log(obj.data);
+                // console.log(obj.data);
+                // console.log(obj.tree_array[0].name);
                 if(obj.data == "true"){
                     $("#wrong_zip_alert").empty();
                     $("#zipcode").css("border-bottom", "1px solid #ffffff");
@@ -45,8 +46,14 @@
                     $("#recommendedTreeFromZone").show();
                     $("#zoneResult").empty().append(obj.hardiness_zone);
 
-                    $.each(obj.tree_array, function(index, value){
-                        $("#recommendedTreeFromZone").append("<div class='col-sm-3' id='treeList'><figure class='figure'><h2 id='treeName'>"+value+"</h2><img src='../img/pexels-lukas-hartmann-1557652-min.jpg' class='figure-img img-fluid rounded' alt='...'><figcaption class='figure-caption text-center'>A caption for the above image.</figcaption></figure></div>")
+                    
+                    $.each(obj.tree_array, function(index, tree_data){
+                        console.log(tree_data.name);
+                        $("#recommendedTreeFromZone").append("<div class='col-sm-3' id='treeList'><figure class='figure'><h2 id='treeName'>"+tree_data.name+"</h2><img src='../img/pexels-lukas-hartmann-1557652-min.jpg' class='figure-img img-fluid rounded' alt='...'><figcaption class='figure-caption text-center'>"+tree_data.plant_family+"</figcaption></figure></div></div>")
+                        if((index+1)%3==0){
+                            $("#recommendedTreeFromZone").append("<div class='col-sm-2' id='treeList'></div>");
+                        }
+                        
                         //$("#treeName").append(value);
                     });
 
@@ -56,8 +63,8 @@
                     
                     var mapAPILink = "https://api.mapbox.com/styles/v1/mohiuhere/ckzwoh7sz002g15ko32szg4vf.html?title=false&access_token=pk.eyJ1IjoibW9oaXVoZXJlIiwiYSI6ImNrendubm55bTAyM3Mybm5xa2NlaDFyNjgifQ.mUHouLmuKuLilWX3gYrwMg&zoomwheel=true#11/";
                     var mapPosition = mapAPILink.concat(locationPoint);
-                    console.log(mapPosition);
-                    console.log(locationPoint);
+                    // console.log(mapPosition);
+                    // console.log(locationPoint);
                     var map = document.getElementById("location");
                     map.src = mapPosition;
                 }else if(obj.data = 'false'){

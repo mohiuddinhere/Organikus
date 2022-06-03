@@ -1,7 +1,7 @@
 <?php
-$tree = ["Banyan Tree","Neem Tree","Peepal Tree"];
 
 $hardinessZone = "5b";
+
 $zipCode = $_REQUEST['zipcode'];
 $countryCode = "BD";
 $ch = curl_init();
@@ -30,6 +30,21 @@ $json = json_decode($response, true);
 // echo "<pre>";
 // print_r($json);
 // echo "</pre>";
+
+include "../try/conn.php";
+$str = "SELECT * FROM plants";
+$result = mysqli_query($conn, $str);
+$r = mysqli_fetch_all($result);
+
+$tree_data = [];
+if(mysqli_num_rows($result)> 0){
+    foreach($result as $r){
+        array_push($tree_data, $r);
+    }
+    // var_dump($tree_data);
+}
+
+
 $obj = [];
 if($json['results']){
     $latitude = $json['results']["$zipCode"][0]['latitude'];
@@ -40,8 +55,8 @@ if($json['results']){
     $obj['palce'] = $palce;
     $obj['locationPoint'] = $locationPoint;
     $obj['hardiness_zone'] = $hardinessZone;
-    $obj['tree_array'] = $tree;
     $obj['data'] = 'true';
+    $obj['tree_array'] = $tree_data;
     echo json_encode($obj);
 }else if(!$json['results']) {
     $obj['data'] = 'false';
