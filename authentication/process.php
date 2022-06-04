@@ -12,6 +12,7 @@ $confirm_password = $_REQUEST['confirm_password'];
 $checkEmail = emailValidation($email);
 
 $checkPass = passwordValidation($password);
+
 // echo $checkPass;
 
 $str1 = "SELECT email FROM registereduser WHERE email='$email'";

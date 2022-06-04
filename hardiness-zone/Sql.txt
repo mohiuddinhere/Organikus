@@ -1,0 +1,54 @@
+CREATE TABLE hardinesszone(
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	zip VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+	zone VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+)ENGINE=INNODB;
+
+CREATE TABLE treelist(
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+	imagelink VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    species VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    zone_id INT,
+    FOREIGN KEY(zone_id) REFERENCES hardinesszone(id)
+)ENGINE=INNODB;
+
+CREATE TABLE generateproject(
+    project_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	project_name VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    site_area DOUBLE NOT NULL,
+    project_location VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    operate INT(6) UNSIGNED NOT NULL,
+	FOREIGN KEY(operate) REFERENCES operationtype(id)
+)ENGINE=INNODB;
+
+
+CREATE TABLE generatecrop(
+    crop_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	crop_name VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    crop_code INT NOT NULL,
+    percentage INT NOT NULL,
+    operation INT,
+    proj_id INT,
+	FOREIGN KEY(proj_id) REFERENCES generateproject(project_id)
+)ENGINE=INNODB;
+
+
+CREATE TABLE projectlist(
+    project_list_id INT NOT NULL,
+    FOREIGN KEY(project_list_id) REFERENCES generateproject(project_id),
+	project_name VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    user_id INT(11),
+	FOREIGN KEY(user_id) REFERENCES registereduser(id)
+)ENGINE=INNODB;
+
+
+CREATE TABLE projectresult(
+	generate_id INT NOT NULL,
+    FOREIGN KEY(generate_id) REFERENCES generateproject(project_id),
+    crop_id INT NOT NULL,
+    FOREIGN KEY(crop_id) REFERENCES generatecrop(crop_id),
+	max_annual_expense DOUBLE NOT NULL,
+    operating_expense DOUBLE NOT NULL,
+    capital_expense DOUBLE NOT NULL
+)ENGINE=INNODB;

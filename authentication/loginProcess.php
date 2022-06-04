@@ -6,6 +6,8 @@ $password = $_REQUEST['password'];
 
 // echo $password;
 
+$password = md5($password);
+
 $str1 = "SELECT email FROM registereduser WHERE email='$email'";
 $result = mysqli_query($conn, $str1);
 // $checkExistingEmail = mysqli_query($conn, $str1);
