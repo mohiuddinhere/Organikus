@@ -95,17 +95,15 @@
     <script src="auth_scripts.js"></script>
     <script>
         $(document).ready(function(){
+            emailValidation();  //from auth_scripts.js
+            passwordValidation(); //from auth_scripts.js
+            confirmPassword(); //form auth_scripts.js
+            
             $("#submit").click(function(e){
                 e.preventDefault();
                 var email = $("#email").val();
                 var password = $("#password").val();
                 var confirm_password = $("#confirm_password").val();
-                
-                emailValidation();  //from auth_scripts.js
-
-                passwordValidation(); //from auth_scripts.js
-
-                confirmPassword(); //form auth_scripts.js
                 
                 // console.log(email);
                 // console.log(password);
