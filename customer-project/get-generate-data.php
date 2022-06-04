@@ -6,12 +6,12 @@ $location = $_REQUEST['location'];
 $operartype = $_REQUEST['operartype'];
 $site = $_REQUEST['site'];
 
-echo $projName;
-echo $location;
-echo $operartype;
-echo $site;
+// echo $projName;
+// echo $location;
+// echo $operartype;
+// echo $site;
 
-// $str1 = "SELECT email FROM registereduser WHERE email='$email'";
+// $str1 = "INSERT ";
 // $result = mysqli_query($conn, $str1);
 // $checkExistingEmail = mysqli_query($conn, $str1);
 // $row = ;

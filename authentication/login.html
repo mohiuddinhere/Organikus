@@ -68,7 +68,7 @@
             </div>
         </div>
     </div>
-<script src="https://apis.google.com/js/platform.js" async defer></script>
+<!-- <script src="https://apis.google.com/js/platform.js" async defer></script> -->
 <script src="auth_scripts.js"></script>
 <script>
     $(document).ready(function(){
@@ -96,7 +96,11 @@
                     dataType: "json",
                     encode: true,
                 }).done(function (data) {
-                    console.log(data);
+                    // if(data.auth == "true"){
+                        window.location.href = "http://localhost/Organikus/customer-project/project.html";
+                    // }else{
+                    //     console.log("err");
+                    // }
                 });
                 //console.log($("#checkTermsConditions").val());
         });
