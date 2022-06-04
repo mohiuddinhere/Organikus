@@ -31,8 +31,8 @@ $json = json_decode($response, true);
 // print_r($json);
 // echo "</pre>";
 
-include "../try/conn.php";
-$str = "SELECT * FROM plants";
+include "../authentication/connection.php";
+$str = "SELECT * FROM treelist";
 $result = mysqli_query($conn, $str);
 $r = mysqli_fetch_all($result);
 
