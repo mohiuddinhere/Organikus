@@ -61,14 +61,15 @@
                             </div> -->
                             <input type="submit" id="submit" class="butt curs" value="CREATE ACCOUNT">
 
-                        <div class="resp">
+                        <!-- register with google
+                            <div class="resp">
                             <div class="google-btn curs">
                                 <div class="google-icon-wrapper">
                                   <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
                                 </div>
                                 <p class="btn-text"><b>Continue with Google</b></p>
                             </div>
-                        </div>
+                        </div> -->
 
                             <p id="form-foot">Already a user? <a href="login.html" class="anchor">LOG IN</a></p>
                         </form>
@@ -98,7 +99,7 @@
             emailValidation();  //from auth_scripts.js
             passwordValidation(); //from auth_scripts.js
             confirmPassword(); //form auth_scripts.js
-            
+
             $("#submit").click(function(e){
                 e.preventDefault();
                 var email = $("#email").val();
