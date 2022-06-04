@@ -2,6 +2,8 @@
 
 print_r($_POST);
 
+$crop_name = $_REQUEST['']
+
 // $obj = [];
 // if($_POST){
 //     $obj['data'] = 'true';

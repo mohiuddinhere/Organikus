@@ -15,10 +15,10 @@
         "text-align": "center"
     });
     $("#mapFrameAboutZip").css("text-align", "justify");
-
+    var i = 0;
     $(document).ready(function(){
         $("#submitZip").click(function(e){
-
+            i++;
             e.preventDefault();
             var zip = $("#zipcode").val();
             console.log(zip);
@@ -48,14 +48,20 @@
 
                     
                     $.each(obj.tree_array, function(index, tree_data){
-                        console.log(tree_data.name);
-                        $("#recommendedTreeFromZone").append("<div class='col-sm-3' id='treeList'><figure class='figure'><h2 id='treeName'>"+tree_data.name+"</h2><img src='../img/pexels-lukas-hartmann-1557652-min.jpg' class='figure-img img-fluid rounded' alt='...'><figcaption class='figure-caption text-center'>"+tree_data.plant_family+"</figcaption></figure></div></div>")
-                        if((index+1)%3==0){
-                            $("#recommendedTreeFromZone").append("<div class='col-sm-2' id='treeList'></div>");
+                        // console.log(tree_data.name);
+                        // console.log(tree_data.species);
+                        if(i==1){
+                            $("#recommendedTreeFromZone").append("<div class='col-sm-3' id='treeList'><figure class='figure'><h2 id='treeName'>"+tree_data.name+"</h2><img src='../img/"+tree_data.imagelink+".jpg' class='figure-img img-fluid rounded' alt='...'><figcaption class='figure-caption text-center'>"+tree_data.species+"</figcaption></figure></div></div>")
+                            if((index+1)%3==0){
+                                $("#recommendedTreeFromZone").append("<div class='col-sm-2' id='treeList'></div>");
+                            }
                         }
+
+                        
                         
                         //$("#treeName").append(value);
                     });
+                    
 
                     locationPoint = obj.locationPoint;
                     place = obj.place;
@@ -81,5 +87,6 @@
 
             
         });
+        
     });
 

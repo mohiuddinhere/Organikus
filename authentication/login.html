@@ -22,7 +22,7 @@
                             <header>LOGIN</header>
                             <div class="form-group">
                                 <i class="fas fa-envelope"></i>
-                                <input class="myInput" placeholder="Email" type="email" id="email" required>
+                                <input class="myInput" placeholder="Email" type="email" id="email" value="farhad@gmail.com" required>
                                 <br>
                                 <span id="wrong_email_alert"></span>
                                 <div class="invalid-feedback">Please fill out this field
@@ -31,7 +31,7 @@
 
                             <div class="form-group">
                                 <i class="fas fa-lock"></i>
-                                <input class="myInput" type="password" id="password" placeholder="Password" required>
+                                <input class="myInput" type="password" id="password" placeholder="Password" value="Farhad123@" required>
                             </div>
 
                             <input type="submit" id="submit" class="butt curs log-siz" value="LOGIN">
@@ -95,12 +95,14 @@
                     data: loginInfo,
                     dataType: "json",
                     encode: true,
-                }).done(function (data) {
-                    // if(data.auth == "true"){
-                        window.location.href = "http://localhost/Organikus/customer-project/project.html";
-                    // }else{
-                    //     console.log("err");
-                    // }
+                    success: function (response){
+                        console.log(response);
+                    }
+                }).done(function (response) {
+                    console.log(response.data);
+                    if(response.data){
+                        window.location.href = "../customer-project/project.html";
+                    }
                 });
                 //console.log($("#checkTermsConditions").val());
         });

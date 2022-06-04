@@ -1,4 +1,4 @@
-<?Php 
+<?php 
 
 include '../authentication/connection.php';
 
