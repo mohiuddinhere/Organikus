@@ -7,9 +7,22 @@ $location = $_REQUEST['location'];
 $operation_type = $_REQUEST['operartype'];
 $site = $_REQUEST['site'];
 
-$str = "INSERT INTO generateproject(project_name, site_area, project_location, operate, user_id) 
-VALUES ('$project_name', $site, '$location', $operation_type, $user_id)";
-mysqli_query($conn,$str);
+$str = "SELECT project_name, user_id FROM generateproject 
+WHERE project_name = '$project_name' && user_id = $user_id";
+$result = mysqli_query($conn, $str);
+
+if(mysqli_num_rows($result)<=0)
+{
+    $str = "INSERT INTO generateproject(project_name, site_area, project_location, operate, user_id) 
+    VALUES ('$project_name', $site, '$location', $operation_type, $user_id)";
+    mysqli_query($conn,$str);
+}
+else
+{
+    echo 'single user cannot create multiple projects with same name';
+}
+
+
 
 
 // echo $projName;
