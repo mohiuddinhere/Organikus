@@ -191,6 +191,9 @@
             e.preventDefault();
             
             $("#add_btn").val('Adding...');
+
+            // console.log(("#add_form").getElementByName('crop_percentage[]'));
+
             $.ajax({
                 url: 'generate-crop.php',
                 method: 'POST',
