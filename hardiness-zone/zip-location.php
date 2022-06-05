@@ -1,8 +1,5 @@
 <?php
-
-$hardinessZone = "5b";
-
-$zipCode = $_REQUEST['zipcode'];
+$zipCode = $_POST['zipcode'];
 $countryCode = "BD";
 $ch = curl_init();
 
@@ -32,7 +29,14 @@ $json = json_decode($response, true);
 // echo "</pre>";
 
 include "../authentication/connection.php";
-$str = "SELECT * FROM treelist";
+$str = "SELECT * FROM hardinesszone WHERE zip = $zipCode";
+$result = mysqli_query($conn, $str);
+$r = mysqli_fetch_assoc($result);
+$hardinessZone = $r['zone'];
+$zip_id = $r['id'];
+
+
+$str = "SELECT * FROM treelist WHERE zone_id = $zip_id";
 $result = mysqli_query($conn, $str);
 $r = mysqli_fetch_all($result);
 
