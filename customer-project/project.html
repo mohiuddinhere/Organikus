@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="../css/style.css"/>
         <link rel="stylesheet" href="../css/index.css">
         <link rel="stylesheet" href="../css/project.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://kit.fontawesome.com/d19dff645a.js" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -87,7 +88,7 @@
                 </div>
             </div> -->
 
-            <div class="row mt-5 project-card mb-5">
+            <div class="row mt-5 project-card mb-5" id="all_project_list">
                 <!-- <div class="col-3 border rounded mx-2 mb-4">
                     <i class="fa-solid fa-house-chimney-window"></i>
                     <h3>Tamim's Farm</h3>
@@ -103,9 +104,9 @@
                     <h3>Tamim's Farm</h3>
                     <button>VIEW</button>
                 </div> -->
-                <a href="http://localhost/Organikus/customer-project/generate-project.html" class="col-3 border add-project-card rounded mx-2 mb-4 d-flex">
+                <!-- <a href="http://localhost/Organikus/customer-project/generate-project.html" class="col-3 border add-project-card rounded mx-2 mb-4 d-flex">
                     <i class="fa-solid fa-plus"></i>
-                </a>
+                </a> -->
             </div>
         </div>
 
@@ -173,6 +174,43 @@
   window.addEventListener('scroll', function () {
       nav.classList.add('bg-dark', 'shadow');
   });
+
+  $(document).ready(function(){
+        $.ajax({
+            url: "project.php",
+            type: "POST",
+            data: {
+                data: 'true'
+            },
+            dataType: "json",
+            encode: true,
+        }).done(function (data) {
+            // console.log(data.project_list.length);
+            for (let index = 0; index < data.project_list.length; index++) {
+                // const element = array[index];
+                $("#all_project_list").append(`<div class="col-3 border rounded mx-2 mb-4">
+                <i class="fa-solid fa-house-chimney-window"></i>
+                <h3>`+data.project_list[index][1]+`</h3>
+                <button>VIEW</button>
+                </div>`);
+                // console.log(index);
+            }
+            // console.log(data.project_list[0][1]);
+            // $.each(data, function(index, data){
+            //     // console.log(data[index][1]);
+            //     console.log(index);
+            //     // $("#all_project_list").append(`<div class="col-3 border rounded mx-2 mb-4">
+            //     // <i class="fa-solid fa-house-chimney-window"></i>
+            //     // <h3>`+data[index][1]+`</h3>
+            //     // <button>VIEW</button>
+            //     // </div>`);
+            // });
+            $("#all_project_list").append(`<a href="http://localhost/Organikus/customer-project/generate-project.html" class="col-3 border add-project-card rounded mx-2 mb-4 d-flex">
+                    <i class="fa-solid fa-plus"></i>
+                </a>`);
+        });
+});
+
 </script>
 
 </html>

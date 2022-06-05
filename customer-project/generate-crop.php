@@ -22,6 +22,7 @@ foreach($_POST['crop_name'] as $key => $value){
     $crop_name = $_POST['crop_name'][$key];
     $crop_code = $_POST['crop_grow_system'][$key];
     $percentage = $_POST['crop_percentage'][$key];
+
     $sql = "INSERT INTO generatecrop(crop_name, crop_code, percentage, proj_id) 
     VALUES ('$crop_name', $crop_code, $percentage, $project_id);";
     // echo $sql;
