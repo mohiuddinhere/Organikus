@@ -164,7 +164,7 @@
                   </div>
 
                   <div class="col-md-3 mb-3">
-                      <input type="text" class="form-control" name="crop_grow_system[]" placeholder="Grow System" required>
+                      <input type="text" class="form-control" name="crop_grow_system[]" placeholder="Crop Code" required>
                   </div>
 
                   <div class="col-md-3 mb-3">
@@ -196,9 +196,14 @@
                 method: 'POST',
                 data: $("#add_form").serialize(),
                 success: function(response){
-                    console.log(response);
+                    // console.log(response);
                 }
             });
+            // .done(function (response) {
+            //         if(response.data == 'true'){
+            //             window.location.href = "../customer-project/project.html";
+            //         }
+            // });
         });
     });
 </script>

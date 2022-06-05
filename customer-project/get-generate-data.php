@@ -7,9 +7,12 @@ $location = $_REQUEST['location'];
 $operation_type = $_REQUEST['operartype'];
 $site = $_REQUEST['site'];
 
+
 $str = "SELECT project_name, user_id FROM generateproject 
 WHERE project_name = '$project_name' && user_id = $user_id";
 $result = mysqli_query($conn, $str);
+
+$_SESSION['project_name'] = $project_name;
 
 if(mysqli_num_rows($result)<=0)
 {
