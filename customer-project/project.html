@@ -9,6 +9,12 @@
         <link rel="stylesheet" href="../css/project.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://kit.fontawesome.com/d19dff645a.js" crossorigin="anonymous"></script>
+        <style>
+            .view_button_color, .view_button_color:hover, .view_button_color:focus, .view_button_color:active {
+            text-decoration: none;
+            color: inherit;
+            }
+        </style>
     </head>
     <body>
         <!-- Navbar  -->
@@ -41,7 +47,7 @@
                         <li class="nav-item">
                         <a class="nav-link text-primary" href="../shop/shop.html">Yard's Shop</a>
                         </li>
-                        <a href="../authentication/user-registration.html"><button class="button-59" role="button">Join</button></a>
+                        <a href="../authentication/session-end.php"><button class="button-59" role="button">signout</button></a>
                         
                     </ul>
                 </div>
@@ -59,7 +65,7 @@
         <div class="container">
             <div class="row">
                 <a href="http://localhost/Organikus/customer-project/project.html">
-                    <div class="col-sm-4 d-flex border  top-nav" style="margin-left: 2.2rem;">
+                    <div class="col-sm-4 d-flex border top-nav" style="margin-left: 2.2rem;">
                         <i class="fa-solid fa-grip"></i>
                         <p>All Project</p>
                     </div>
@@ -191,7 +197,7 @@
                 $("#all_project_list").append(`<div class="col-3 border rounded mx-2 mb-4">
                 <i class="fa-solid fa-house-chimney-window"></i>
                 <h3>`+data.project_list[index][1]+`</h3>
-                <button>VIEW</button>
+                <button><a class="view_button_color" href="http://localhost/Organikus/customer-project/result.php?id=`+data.project_list[index][0]+`">VIEW</a></button>
                 </div>`);
                 // console.log(index);
             }

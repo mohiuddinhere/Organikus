@@ -30,7 +30,9 @@ function passwordValidation($password){
     }
 }
 
-
+// function signout(){
+//     session_destroy();
+// }
 
 
 ?>

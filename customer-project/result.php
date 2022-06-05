@@ -1,3 +1,36 @@
+<?php
+include '../authentication/auth.php';
+// include 'get-generate-data.php';
+include '../authentication/connection.php';
+
+$user_id =  $_SESSION['id'];
+$project_id = $_REQUEST['id'];
+
+// echo $user_id;
+// echo $project_id;
+
+$str = "SELECT * FROM generatecrop WHERE proj_id=$project_id";
+$result = mysqli_query($conn, $str);
+$row = mysqli_fetch_all($result);
+// echo "<pre>";
+// print_r($row);
+// echo "</pre>";
+
+$str = "SELECT * FROM projectresult WHERE generate_id=$project_id";
+$result = mysqli_query($conn, $str);
+$row2 = mysqli_fetch_all($result);
+// echo "<pre>";
+// print_r($row2);
+// echo "</pre>";
+
+$str = "SELECT * FROM generateproject WHERE project_id=$project_id";
+$result = mysqli_query($conn, $str);
+$row3 = mysqli_fetch_assoc($result);
+// echo "<pre>";
+// print_r($row3);
+// echo "</pre>";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -43,7 +76,7 @@
                         <li class="nav-item">
                         <a class="nav-link text-primary" href="../shop/shop.html">Yard's Shop</a>
                         </li>
-                        <a href="../authentication/session-end.php"><button class="button-59" role="button">signout</button></a>
+                        <a href="../authentication/user-registration.html"><button class="button-59" role="button">Join</button></a>
                         
                     </ul>
                 </div>
@@ -58,7 +91,7 @@
         
         <br>
         <div class="container mb-4 ps-0">
-            <h2>Tamim's farm</h2>
+            <h2><?php echo $row3['project_name'] ?></h2>
         </div>
         <div class="container border">
             <div class="row">
@@ -66,21 +99,21 @@
                 <div class="col-sm-4 result-card mb-4">
                     <div class="mt-3">
                         <i class="fa-solid fa-money-check-dollar"></i>
-                        <h4>$20,000</h4>
+                        <h4><?php echo $row2[1][2]+$row2[0][2] ?></h4>
                     </div>
                     <h6>Maximum Annual Expense</h6>
                 </div>
                 <div class="col-sm-4 result-card mb-4">
                     <div class="mt-3">
                         <i class="fa-solid fa-money-check-dollar"></i>
-                        <h4>$20,000000</h4>
+                        <h4><?php echo $row2[1][4]+$row[0][4] ?></h4>
                     </div>
                     <h6>Capital Expense</h6>
                 </div>
                 <div class="col-sm-4 result-card mb-4">
                     <div class="mt-3">
                         <i class="fa-solid fa-money-check-dollar"></i>
-                        <h4>$20,00000</h4>
+                        <h4><?php echo $row2[1][3]+$row[0][3] ?></h4>
                     </div>
                     <h6>operating expense</h6>
                 </div>
@@ -90,12 +123,18 @@
                 <div class="row mt-2 mb-5">
                     <h3 class="mt-3 mb-2">Crop Pricing</h3>
                     <div class="col-sm-3 border px-0">
-                        <div class="percentage-color px-2">
-                            <h5>Black plum </h5><span>(50%)</span>
+                        <div class="percentage-color px-2" style="width:<?php print_r($row[0][3]) ?>%"> 
+                            <h5><?php print_r($row[0][1]) ?></h5>
                             <h6>$20.00/kg</h6>
                         </div>
                     </div>
                     <div class="col-sm-3 border px-0">
+                        <div class="percentage-color px-2" style="width:<?php print_r($row[1][3]) ?>%">
+                            <h5><?php print_r($row[1][1]) ?></h5>
+                            <h6>$30.00/kg</h6>
+                        </div>
+                    </div>
+                    <!-- <div class="col-sm-3 border px-0">
                         <div class="percentage-color px-2">
                             <h5>Black plum</h5>
                             <h6>$20.00/kg</h6>
@@ -106,13 +145,7 @@
                             <h5>Black plum</h5>
                             <h6>$20.00/kg</h6>
                         </div>
-                    </div>
-                    <div class="col-sm-3 border px-0">
-                        <div class="percentage-color px-2">
-                            <h5>Black plum</h5>
-                            <h6>$20.00/kg</h6>
-                        </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             
@@ -199,23 +232,6 @@
 
   window.addEventListener('scroll', function () {
       nav.classList.add('bg-dark', 'shadow');
-  });
-
-
-  $(document).ready(function(){
-    $.ajax({
-        url: "http://localhost/Organikus/customer-project/result.php?id=",
-        type: "GET",
-        success: function(response){
-            $.each(response, function(index, value) {   
-                    $('#operationcategory')
-                    .append($("<option></option>")
-                    .attr("value", value.id)
-                    .text(value.name)); 
-                });
-            }
-    });
-
   });
 </script>
 </body>
